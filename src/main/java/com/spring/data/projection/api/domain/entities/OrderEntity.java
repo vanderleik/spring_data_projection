@@ -12,7 +12,7 @@ public class OrderEntity {
     private Integer id;
 
     @Column(name = "ORDER_NUMBER")
-    private String orderNumber;
+    private Long orderNumber;
 
     @Column(name = "TOTAL_AMOUNT")
     private String totalAmount;
