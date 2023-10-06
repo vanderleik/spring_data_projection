@@ -19,4 +19,9 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.getCustomerDetails();
     }
 
+    @Override
+    public List<CustomerDTO> searchCustomerByFirstName(String firstName) {
+        return customerRepository.searchCustomerByFirstName(firstName);
+    }
+
 }

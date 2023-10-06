@@ -5,6 +5,7 @@ import com.spring.data.projection.api.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +21,11 @@ public class CustomerController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CustomerDTO> getCustomers() throws Exception {
         return customerService.getCustomerAndOrderData();
+    }
+
+    @RequestMapping(value = "/search/{firstname}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<CustomerDTO> searchCustomerByFirstName(@PathVariable("firstname") String firstName) {
+        return customerService.searchCustomerByFirstName(firstName);
     }
 
 }
