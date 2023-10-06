@@ -1,6 +1,17 @@
 package com.spring.data.projection.api.domain.dtos;
 
-import com.spring.data.projection.api.domain.entities.OrderEntity;
+import org.springframework.beans.factory.annotation.Value;
 
-public record CustomerDTO(Integer id, String firstName, String lastName, String city, String country, OrderEntity order) {
+public interface CustomerDTO {
+    Integer getCustomerId();
+
+    @Value("#{target.firstName + ' ' + target.lastName}")
+    String getCustomerName();
+
+    String getCity();
+
+    String getCountry();
+
+    @Value("#{@mapperUtility.buildOrderDTO(target.orderNumber, target.totalAmount)}")
+    OrderDTO getOrder();
 }

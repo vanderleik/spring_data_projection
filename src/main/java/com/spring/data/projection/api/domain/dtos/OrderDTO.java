@@ -1,4 +1,22 @@
 package com.spring.data.projection.api.domain.dtos;
 
-public record OrderDTO(Long orderNumber, String totalAmount) {
+public class OrderDTO {
+    private Long orderNumber;
+    private String totalAmount;
+
+    public Long getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(Long orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
+    public String getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(String totalAmount) {
+        this.totalAmount = totalAmount;
+    }
 }
